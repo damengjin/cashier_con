@@ -1,11 +1,11 @@
 
 userid = localStorage.getItem("id");
 userSession = localStorage.getItem("session");
-earn_trans1 = parseFloat(parseFloat(localStorage.getItem('earn1')).toFixed(2));
+earn_trans2 = parseFloat(parseFloat(localStorage.getItem('earn2')).toFixed(2));
 earn_trans3 = parseFloat(parseFloat(localStorage.getItem('earn3')).toFixed(2));
 earn_trans4 = parseFloat(parseFloat(localStorage.getItem('earn4')).toFixed(2));
 earn_trans5 = parseFloat(parseFloat(localStorage.getItem('earn5')).toFixed(2));
-earn_play = Math.round((this.earn_trans1 + this.earn_trans3 + this.earn_trans4 + this.earn_trans5)*100)/100;
+earn_play = Math.round((this.earn_trans2 + this.earn_trans3 + this.earn_trans4 + this.earn_trans5)*100)/100;
 if (earn_play < -6) {
   earn_play_new = -6;
 } else {
@@ -16,7 +16,7 @@ total_fee = Math.round((earn_play_new + show_up)*100)/100;
 
 document.getElementById("stage5").innerHTML = "The Stage 1 Number Addition earning is: S$<b>" + earn_trans5 + "</b>";
 document.getElementById("stage4").innerHTML = "The Stage 2 Random or Fixed Payment Earning is: S$<b>" + earn_trans4 + "</b>";
-document.getElementById("stage1").innerHTML = "The Stage 3 Cashier Earning is: S$<b>" + earn_trans1 + "</b>";
+document.getElementById("stage1").innerHTML = "The Stage 3 Cashier Earning is: S$<b>" + earn_trans2 + "</b>";
 document.getElementById("stage3").innerHTML = "The Stage 4 Cashier Earning is: S$<b>" + earn_trans3 + "</b>";
 
 

@@ -37,19 +37,19 @@ var app = new Vue({
           xhttp.open("GET", fullURL, true);
           xhttp.send();
       },
-
+      
       URLGenerator () {
-          var url = "https://docs.google.com/forms/d/e/1FAIpQLSfoOfwy9k9RiKZE5EpbOXgXX46VhLtU-JKt-_5Z5plhqU5HGw/formResponse?";
-          var submitRef = "&submit=Submit";
-          var idSession = "entry.290842401";
-          var idName = "entry.1791437035";
-          var correctnum = "entry.1048911395";
-          var idSess = encodeURIComponent(this.userSession);
-          var id = encodeURIComponent(this.userid);
-          var correctAnswer = encodeURIComponent(this.self_eva);
-          var fullURL = url + idSession + "=" + idSess + "&" + idName + "=" + id + "&" + correctnum + "=" + correctAnswer + submitRef;
-          return fullURL;
-      }
+        var url = "https://docs.google.com/forms/d/e/1FAIpQLSfoOfwy9k9RiKZE5EpbOXgXX46VhLtU-JKt-_5Z5plhqU5HGw/formResponse?";
+        var submitRef = "&submit=Submit";
+        var idSession = "entry.290842401";
+        var idName = "entry.1791437035";
+        var correctnum = "entry.1048911395";
+        var idSess = encodeURIComponent(this.userSession);
+        var id = encodeURIComponent(this.userid);
+        var correctAnswer = encodeURIComponent(this.self_eva);
+        var fullURL = url + idSession + "=" + idSess + "&" + idName + "=" + id + "&" + correctnum + "=" + correctAnswer + submitRef;
+        return fullURL;
+    }
   }
 
 

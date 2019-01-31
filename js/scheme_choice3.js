@@ -10,6 +10,7 @@ var app = new Vue({
       deduct: 0,
       Deductstr: '',
       switchPivot: 10,
+      showButton: 1,
     },
 
 
@@ -29,6 +30,7 @@ var app = new Vue({
         },
 
         onSubmit () {
+            this.showButton = 0;
             this.getPivot();
             // generate random choice from 1 ~ 10
             this.scheme_num = Math.floor(Math.random() * 10) + 1;
@@ -50,8 +52,10 @@ var app = new Vue({
             localStorage.setItem('Deductstr', this.Deductstr)
             var URL = this.URLGenerator();
             this.sendResult(URL);
-
-            window.location = 'Wait_page_scheme_noshow.html'; 
+            setTimeout(function()
+            {
+                window.location = 'Wait_page_scheme_noshow.html'; 
+            }, 2000);
         },
 
         getPivot () {

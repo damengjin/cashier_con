@@ -41,7 +41,7 @@ function URLGenerator () {
             var submitRef = "&submit=Submit";
             var idSession = "entry.592597580";
             var idName = "entry.209160597";
-            var earn1Name = "entry.1513069963";
+            //var earn1Name = "entry.1513069963";
             var earn2Name = "entry.1402723257";
             var earn3Name = "entry.671986535";
             var earn4Name = "entry.959641929";
@@ -50,14 +50,14 @@ function URLGenerator () {
             var totalName = "entry.1347914727";
             var idSess = encodeURIComponent(this.userSession);
             var id = encodeURIComponent(userid);
-            var earn1 = encodeURIComponent(earn_trans1);
+            //var earn1 = encodeURIComponent(earn_trans1);
             var earn2 = encodeURIComponent(earn_trans2);
             var earn3 = encodeURIComponent(earn_trans3);
             var earn4 = encodeURIComponent(earn_trans4);
             var earn5 = encodeURIComponent(earn_trans5);
             var showup = encodeURIComponent(show_up);
             var total = encodeURIComponent(total_fee);
-            var fullURL = url + idSession + "=" + idSess + "&" + idName + "=" + id + "&" + earn1Name + "=" + earn1 + "&" + earn2Name + "=" + earn2 +
+            var fullURL = url + idSession + "=" + idSess + "&" + idName + "=" + id + "&" + earn2Name + "=" + earn2 +
                 "&" + earn3Name + "=" + earn3 + "&" + earn4Name + "=" + earn4 + "&" + earn5Name + "=" + earn5 +
                 "&" + showupName + "=" + showup + "&" + totalName + "=" + total + submitRef;
             return fullURL;

@@ -9,6 +9,7 @@ var app = new Vue({
       earn4: 0,
       ansStr: '',
       switchPivot: 10,
+      showButton: 1,
     },
 
     methods: {
@@ -26,6 +27,7 @@ var app = new Vue({
         },
 
         onSubmit () {
+            this.showButton = 0;
             this.getPivot();
             // generate random choice from 1 ~ 10
             this.random_row = Math.floor(Math.random() * 10) + 1;
@@ -43,7 +45,11 @@ var app = new Vue({
             localStorage.setItem("ansStr", this.ansStr);
             var URL = this.URLGenerator();
             this.sendResult(URL);
-            window.location = 'Wait_page4.html';
+            setTimeout(function()
+            {
+                window.location = 'Wait_page4.html';
+            }, 2000);
+
             return;
         },
 

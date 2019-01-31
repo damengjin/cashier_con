@@ -5,10 +5,12 @@ var app = new Vue({
     userSession: localStorage.getItem("session"),
     right_ans: " ",
     self_eva: 0,
+    showButton: 1,
   },
 
   methods: {
       onSubmit () {
+        this.showButton = 0;
           console.log(this.right_ans)
           // how many they think they could answer correctly
           this.self_eva = parseInt(this.right_ans);
@@ -21,9 +23,11 @@ var app = new Vue({
           console.log(this.self_eva)
           var URL = this.URLGenerator();
           this.sendResult(URL);
-
-          window.location = 'Wait_eva.html';
-
+          setTimeout(function()
+          {
+              window.location = 'Wait_eva.html';
+      
+          }, 2000);
       },
 
       sendResult (fullURL) {

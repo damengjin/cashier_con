@@ -32,13 +32,39 @@
         <div class="row text-center">
             <div class="col-sm-12"><b>Transactions {{current+1}}/{{round}}</b></div>
         </div><br/>
-        <div class="row text-center">
+
+        <!-- Uncomment to revise back the display for individual timer -->
+        <!-- <div class="row text-center">
             <div class="col-sm-1"></div>
             <div class="col-sm-1">
                 <div class="alert alert-danger">
                     Time: <b>{{currentFormatTime}}</b>
                 </div>
             </div>
+            <div class="col-sm-2">
+                <div class="alert alert-danger">
+                    Previous excess change: <b>S$ {{prevExcess.toFixed(2)}}</b>
+                </div>
+            </div>
+            <div class="col-sm-7">
+                <div class="alert alert-danger">
+                    <div class="row text-center">
+                        <b>Earning indicator (before total excess deducted): S$ {{accum_earn_tran3}}</b>
+                    </div>
+                    <div class="two-d-bar">
+                        <div class="left">
+                            <div class="left-bar" v-bind:style="{width: negEarn+'px'}"></div>
+                        </div>
+                        <div class="right">
+                            <div class="right-bar" v-bind:style="{width: posEarn+'px'}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="row text-center">
+            <div class="col-sm-2"></div>
             <div class="col-sm-2">
                 <div class="alert alert-danger">
                     Previous excess change: <b>S$ {{prevExcess.toFixed(2)}}</b>

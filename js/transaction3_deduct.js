@@ -73,10 +73,11 @@ var app = new Vue({
         countdown: 60,
         userNote: [5, 10, 50],
 
-        currentCountdown: 0,
-        currentCountdown_pos: 0,
-        currentCountdown_cash: 12,
-        currentCountdown_card: 8,
+        // Uncomment to add individual timer back
+        // currentCountdown: 0,
+        // currentCountdown_pos: 0,
+        // currentCountdown_cash: 12,
+        // currentCountdown_card: 8,
 
         show_num_pad: false,
         num_pad_input: '',
@@ -91,9 +92,10 @@ var app = new Vue({
 
     created () {
         this.questionBase();
-        // reset round countdown
-        this.resetCurrentCountdown();
-        this.currentRoundTick();
+        // Uncomment to add individual timer back
+        // // reset round countdown
+        // this.resetCurrentCountdown();
+        // this.currentRoundTick();
         this.initial();
         this.tick();
     },
@@ -121,28 +123,30 @@ var app = new Vue({
             else {second = this.countdown % 60; }
             return Math.floor(this.countdown / 60) + ":" + second;
         },
-        currentFormatTime () {
-            //if the current time is still within the time limit:
-            if (this.currentCountdown >0){
-                if (this.currentCountdown % 60  < 10){
-                    second = "0" + this.currentCountdown % 60;
-                }
-                else {second = this.currentCountdown % 60; }
-                return Math.floor(this.currentCountdown / 60) + ":" + second;
-            }
-            //deduction from earnings if exceeds the time limit:
-            else {
-                this.currentCountdown_pos = - this.currentCountdown;
-                if (this.currentCountdown_pos % 60  < 10){
-                    second = "0" + this.currentCountdown_pos % 60;
-                }
-                else {
-                    second = this.currentCountdown_pos % 60; 
-                }
-                //console.log(this.currentCountdown_pos);
-                return "- " + Math.floor(this.currentCountdown_pos / 60) + ":" + second;
-            }
-        },
+
+        // Uncomment to add individual timer back
+        // currentFormatTime () {
+        //     //if the current time is still within the time limit:
+        //     if (this.currentCountdown >0){
+        //         if (this.currentCountdown % 60  < 10){
+        //             second = "0" + this.currentCountdown % 60;
+        //         }
+        //         else {second = this.currentCountdown % 60; }
+        //         return Math.floor(this.currentCountdown / 60) + ":" + second;
+        //     }
+        //     //deduction from earnings if exceeds the time limit:
+        //     else {
+        //         this.currentCountdown_pos = - this.currentCountdown;
+        //         if (this.currentCountdown_pos % 60  < 10){
+        //             second = "0" + this.currentCountdown_pos % 60;
+        //         }
+        //         else {
+        //             second = this.currentCountdown_pos % 60; 
+        //         }
+        //         //console.log(this.currentCountdown_pos);
+        //         return "- " + Math.floor(this.currentCountdown_pos / 60) + ":" + second;
+        //     }
+        // },
 
         card_type_img () {
             if (this.card_type === 'visa') {
@@ -193,28 +197,30 @@ var app = new Vue({
             this.timeFreeze = false;
         },
 
-        currentRoundTick () {
-            // if (this.currentCountdown < 0) {
-            //     this.next();
-            // }
-            setTimeout(() => {
-                if (!this.timeFreeze) {
-                    this.currentCountdown--;
-                };
-                this.currentRoundTick();
-            }, 1000);
-        },
+        // Uncomment to add individual timer back
+        // currentRoundTick () {
+        //     // if (this.currentCountdown < 0) {
+        //     //     this.next();
+        //     // }
+        //     setTimeout(() => {
+        //         if (!this.timeFreeze) {
+        //             this.currentCountdown--;
+        //         };
+        //         this.currentRoundTick();
+        //     }, 1000);
+        // },
 
-        resetCurrentCountdown () {
-            if (this.type_ind[this.current] === 0){
-                this.currentCountdown = this.currentCountdown_cash;
-                this.currentCountdown_pos = 0;
-            }
-            else {
-                this.currentCountdown = this.currentCountdown_card;
-                this.currentCountdown_pos = 0;
-            }
-        },
+        // Uncomment to add individual timer back
+        // resetCurrentCountdown () {
+        //     if (this.type_ind[this.current] === 0){
+        //         this.currentCountdown = this.currentCountdown_cash;
+        //         this.currentCountdown_pos = 0;
+        //     }
+        //     else {
+        //         this.currentCountdown = this.currentCountdown_card;
+        //         this.currentCountdown_pos = 0;
+        //     }
+        // },
 
         // nextpage() {
         //     confirm("Press ONLY when you're told to DO SO!");
@@ -307,8 +313,10 @@ var app = new Vue({
                 this.sendResult(URL);
 
                 //Accumulated earn in this stage:(To plot bar)
-                console.log(this.currentCountdown_pos);
-                this.accum_earn_tran3 = Math.round(((this.accum_earn_tran3 + this.multiplier) - (this.currentCountdown_pos * 0.01))*1000)/1000;
+                // Uncomment to add individual timer back
+                // console.log(this.currentCountdown_pos);
+                // this.accum_earn_tran3 = Math.round(((this.accum_earn_tran3 + this.multiplier) - (this.currentCountdown_pos * 0.01))*1000)/1000;
+                this.accum_earn_tran3 = Math.round(((this.accum_earn_tran3 + this.multiplier))*1000)/1000;
                 this.next();
             }
         },
@@ -451,7 +459,8 @@ var app = new Vue({
         },
 
         show_current_round_page () {
-            this.resetCurrentCountdown();
+            // Uncomment to set individual timer back
+            // this.resetCurrentCountdown();
             if (this.type_ind[this.current] ===  0) {
                 this.show_card = false;
                 this.show_num_pad = true;
@@ -540,7 +549,8 @@ var app = new Vue({
                 this.num_pad_input = '';
                 //this.current = this.current - 1;
                 this.clear();
-                this.resetCurrentCountdown();
+                // Uncomment to set individual timer back
+                // this.resetCurrentCountdown();
                 this.upload();
             } 
             // short changed due to key in excess payment go back and correct the payment:
@@ -555,7 +565,8 @@ var app = new Vue({
                 this.num_pad_input = '';
                 //this.current = this.current - 1;
                 this.clear();
-                this.resetCurrentCountdown();
+                // Uncomment to set individual timer back
+                // this.resetCurrentCountdown();
                 this.upload();
             } 
             //else if ((Math.round(this.result * 100) == Math.round(this.changebypay * 100)) & (Math.round(this.changetrue * 100) == Math.round(this.changebypay * 100))) {
@@ -589,8 +600,10 @@ var app = new Vue({
             var URL = this.URLGenerator();
             this.sendResult(URL);
             //Accumulated earn in this stage:(To plot bar)
-            console.log(this.currentCountdown_pos);
-            this.accum_earn_tran3 = Math.round((this.accum_earn_tran3 + (this.currentCorrect * this.multiplier) + (this.currentWrong * 0) - (this.currentCountdown_pos * 0.01))*1000)/1000;
+            // Uncomment to set individual timer back
+            // console.log(this.currentCountdown_pos);
+            // this.accum_earn_tran3 = Math.round((this.accum_earn_tran3 + (this.currentCorrect * this.multiplier) + (this.currentWrong * 0) - (this.currentCountdown_pos * 0.01))*1000)/1000;
+            this.accum_earn_tran3 = Math.round((this.accum_earn_tran3 + (this.currentCorrect * this.multiplier) + (this.currentWrong * 0))*1000)/1000;
         },
 
         onBack () {
